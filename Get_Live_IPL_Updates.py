@@ -2,12 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 @author: Rohit Swami
-Description: This is a pretty simple Python script. This script will download 
-the homepage of https://demo.entitysport.com/ and scrap the live updates whenever 
-there is a Four, Six and fall of Wicket. 
+Description: This is a pretty simple Python script. This script will download
+the homepage of https://demo.entitysport.com/ and scrap the live updates whenever
+there is a Four, Six and fall of Wicket.
 """
 
 # Importing necessary libraries
+import pyobjus
+import Cython
 import argparse
 from bs4 import BeautifulSoup
 from plyer import notification
@@ -53,7 +55,7 @@ def get_html(request_URL="https://demo.entitysport.com/"):
         "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.95 Safari/537.36"
     }
     html = requests.get(request_URL, headers=headers)
-    soup = BeautifulSoup(html.content, "html5lib")
+    soup = BeautifulSoup(html.content, "html.parser")
     return soup
 
 
